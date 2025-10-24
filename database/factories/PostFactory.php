@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use Illuminate\Support\Facades\Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,11 +17,11 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            "title" => fake()->sentence(mt_rand(2, 8)),
-            "slug" => fake()->slug(),
-            "excerpt" => fake()->paragraph(),
+            "title" => $this->faker->sentence(mt_rand(2, 8)),
+            "slug" => $this->faker->slug(),
+            "excerpt" => $this->faker->paragraph(),
             //  "body" => "<p>" . implode("</p><p>", fake()->paragraphs(mt_rand(5, 10))) . "</p>",  
-            "body" => collect(fake()->paragraphs(mt_rand(5, 10)))
+            "body" => collect($this->faker->paragraphs(mt_rand(5, 10)))
                 ->map(fn($p) => "<p>$p</p>")
                 ->implode(''),
             "category_id" => mt_rand(1, 3),

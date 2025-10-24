@@ -55,6 +55,7 @@
                      </li>
                  </ul>
          </div>
+         @can('admin')
          <hr class="my-3" />
          <h7 class="nav flex-column d-flex justify-content-between align-items-center px-3 mt-4 mb-1">
              <span class="nav-link">
@@ -69,5 +70,6 @@
                  </a>
              </li>
          </ul>
+         @endcan
      </div>
  </div>
