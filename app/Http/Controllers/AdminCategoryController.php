@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class AdminCategoryController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -21,6 +23,7 @@ class AdminCategoryController extends Controller
         //     abort(403);
         // }
 
+        //$this->authorize('admin'); // using function authorize() for gate
         return view('dashboard.categories.index', [
             'categories' => Category::all()
         ]);
