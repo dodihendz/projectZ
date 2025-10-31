@@ -22,6 +22,14 @@ class Post extends Model
         //     return $query->where('title', 'like', '%' . $filters('search') . '%')
         //         ->orWhere('body', 'like', '%' . $filters('search') . '%');
         // }
+
+        // SQL query
+        // dd([
+        //     'Initial Query' => $query->toSql(),
+        //     'Filters Received' => $filters,
+        //     'Table' => $query->getModel()->getTable(),
+        //     'Bindings' => $query->getBindings()
+        // ]);
         $query->when($filters['search'] ?? false, function ($query, $search) {
             return $query->where(function ($query) use ($search) {
                 $query->where('title', 'like', '%' . $search . '%')
