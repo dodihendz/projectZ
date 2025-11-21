@@ -20,7 +20,8 @@ class PostController extends Controller
             $author = User::firstwhere('username', request('author'));
             $title = " by " . $author->name;
         }
-
+        // $postss = Post::latest()->get();
+        // dd($postss);
         // dd(request('search'));
         return view('posts', [
             "title" => "All Posts" . $title,
